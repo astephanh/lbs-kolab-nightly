@@ -1,0 +1,25 @@
+From fd581c0d09f0b3b28f48c0b899ecea48ad5a4088 Mon Sep 17 00:00:00 2001
+From: Timotheus Pokorra <tp@tbits.net>
+Date: Tue, 14 Apr 2015 08:43:25 +0200
+Subject: [PATCH] new Phabricator url for git.kolab.org
+
+---
+ composer.json |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/composer.json b/composer.json
+index 1efbef6..0a9912c 100644
+--- a/composer.json
++++ b/composer.json
+@@ -10,7 +10,7 @@
+ 		},
+ 		{
+ 			"type": "vcs",
+-			"url": "git://git.kolab.org/git/pear/Net_LDAP3"
++			"url": "https://git.kolab.org/diffusion/PNL/php-net_ldap.git"
+ 		}
+ 	],
+ 	"require": {
+-- 
+1.7.1
+

@@ -1,0 +1,26 @@
+From a4b80d320b42bec56a9b5154e1e005952b2affd2 Mon Sep 17 00:00:00 2001
+From: "Jeroen van Meeuwen (Kolab Systems)" <vanmeeuwen@kolabsys.com>
+Date: Wed, 18 Mar 2015 14:05:30 +0100
+Subject: [PATCH 2/3] Proxy the new naming context function
+
+---
+ pykolab/auth/__init__.py | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/pykolab/auth/__init__.py b/pykolab/auth/__init__.py
+index 88b46bc..79d6561 100644
+--- a/pykolab/auth/__init__.py
++++ b/pykolab/auth/__init__.py
+@@ -271,6 +271,9 @@ class Auth(pykolab.base.Base):
+     def domain_default_quota(self, domain):
+         return self._auth._domain_default_quota(domain)
+ 
++    def domain_naming_context(self, domain):
++        return self._auth._domain_naming_context(domain)
++
+     def get_entry_attribute(self, domain, entry, attribute):
+         return self._auth.get_entry_attribute(entry, attribute)
+ 
+-- 
+2.1.0
+

@@ -1,0 +1,29 @@
+From 9389961a04bc77a9ec9b82a3359e7fc7bba06016 Mon Sep 17 00:00:00 2001
+From: "Jeroen van Meeuwen (Kolab Systems)" <vanmeeuwen@kolabsys.com>
+Date: Wed, 18 Mar 2015 14:05:41 +0100
+Subject: [PATCH 3/3] Use the new domain naming context comparison function to
+ reduce the number of processes against hosted (#4260)
+
+Domain name spaces are translated back to the domain that owns the naming context, and skipped a separate process for should the naming context already be synchronized by another process.
+---
+ kolabd/__init__.py | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/kolabd/__init__.py b/kolabd/__init__.py
+index 92a929c..6a0fd32 100644
+--- a/kolabd/__init__.py
++++ b/kolabd/__init__.py
+@@ -248,7 +248,9 @@ class KolabDaemon(object):
+             # domains now is a list of tuples, we want the primary_domains
+             primary_domains = []
+             for primary_domain in list(set(domains.values())):
+-                primary_domains.append(primary_domain)
++                primary_domain = primary_auth.domain_naming_context(primary_domain)
++                if not primary_domain == None:
++                    primary_domains.append(primary_domain)
+ 
+             # Now we can check if any changes happened.
+             added_domains = []
+-- 
+2.1.0
+
