@@ -12,10 +12,10 @@ lbs:
         Kolab34: 'deb http://obs.kolabsys.com/repositories/Kolab:/3.4/Debian_7.0/ /'
         Kolab34Updates: 'deb http://obs.kolabsys.com/repositories/Kolab:/3.4:/Updates/Debian_7.0/ /'
         KolabDevelopment: 'deb http://obs.kolabsys.com/repositories/Kolab:/Development/Debian_7.0/ /'
-      keys: ['http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x830C2BCF446D5A45']
+      keys: ['http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x830C2BCF446D5A45', 'http://keyserver.ubuntu.com/pks/lookup?op=get&fingerprint=on&search=0x4796B710919684AC']
     jessie:
       repos:
         Kolab34: 'deb http://obs.kolabsys.com/repositories/Kolab:/3.4/Debian_8.0/ /'
         Kolab34Updates: 'deb http://obs.kolabsys.com/repositories/Kolab:/3.4:/Updates/Debian_8.0/ /'
         KolabDevelopment: 'deb http://obs.kolabsys.com/repositories/Kolab:/Development/Debian_8.0/ /'
-      keys: ['http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x830C2BCF446D5A45']
+      keys: ['http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x830C2BCF446D5A45', 'http://keyserver.ubuntu.com/pks/lookup?op=get&fingerprint=on&search=0x4796B710919684AC']
