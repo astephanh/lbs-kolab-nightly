@@ -86,7 +86,8 @@ do
     then
       DebianPackageVersion=$serviceVersion
     fi
-    DebianPackageVersion=$DebianPackageVersion-99.nightly$TODAY
+    #Problem: 4.9.1.git > 4.9.1-99.nightly
+    DebianPackageVersion=$DebianPackageVersion.nightly$TODAY
     sed -i "s#^Version:.*#Version: $DebianPackageVersion#g" $debpkgname.dsc
 
     # need to use lowercase package name in changelog
