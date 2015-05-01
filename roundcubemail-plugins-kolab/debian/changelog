@@ -1,6 +1,6 @@
-roundcubemail-plugins-kolab (1:3.2.8.nightly20150430) unstable; urgency=low
+roundcubemail-plugins-kolab (1:3.2.8.nightly20150501) unstable; urgency=low
   * nightly build
- -- Timotheus Pokorra (TBits.net) <tp@tbits.net>  Thu, 30 Apr 2015 11:40:29 +0200
+ -- Timotheus Pokorra (TBits.net) <tp@tbits.net>  Fri, 01 May 2015 11:57:09 +0200
 
 roundcubemail-plugins-kolab (1:3.2.8-0~kolab1) unstable; urgency=low
 
