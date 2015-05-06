@@ -1,6 +1,6 @@
-kolab-freebusy (1.0.7-99.nightly20150430) unstable; urgency=low
+kolab-freebusy (1.0.7.nightly20150506) unstable; urgency=low
   * nightly build
- -- Timotheus Pokorra (TBits.net) <tp@tbits.net>  Thu, 30 Apr 2015 02:55:41 +0200
+ -- Timotheus Pokorra (TBits.net) <tp@tbits.net>  Wed, 06 May 2015 02:54:15 +0200
 
 kolab-freebusy (1.0.7-0~kolab3) unstable; urgency=low
 

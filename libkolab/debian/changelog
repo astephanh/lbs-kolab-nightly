@@ -1,6 +1,6 @@
-libkolab (0.6-99.nightly20150430) unstable; urgency=low
+libkolab (0.6.nightly20150506) unstable; urgency=low
   * nightly build
- -- Timotheus Pokorra (TBits.net) <tp@tbits.net>  Thu, 30 Apr 2015 02:58:23 +0200
+ -- Timotheus Pokorra (TBits.net) <tp@tbits.net>  Wed, 06 May 2015 02:58:31 +0200
 
 libkolab (0.6~dev20150112-0~kolab2)  unstable; urgency=low
 
