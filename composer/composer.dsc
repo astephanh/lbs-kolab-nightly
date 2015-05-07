@@ -7,7 +7,6 @@ Maintainer: Ross Duggan <ross.duggan@acm.org>
 Standards-Version: 3.9.4
 Build-Depends: debhelper (>= 7), po-debconf, php5-dev
 Homepage: https://github.com/composer/composer
-Standards-Version: 3.9.3
 Vcs-Git: git://anonscm.debian.org/pkg-php/composer.git
 Vcs-Browser: http://anonscm.debian.org/gitweb/?p=pkg-php/composer.git
 Package-List: 
