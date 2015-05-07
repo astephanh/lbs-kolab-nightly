@@ -87,7 +87,9 @@ do
       DebianPackageVersion=$serviceVersion
     fi
     #Problem: 4.9.1.git > 4.9.1-99.nightly
-    DebianPackageVersion=$DebianPackageVersion~nightly$TODAY
+    #Problem: does not show true: dpkg --compare-versions 4.9.1~nightly20150507 gt 4.9.1 && echo true; on Ubuntu it is equal, but on Jessie it is less
+    #Problem: does not show true: dpkg --compare-versions 4.9.1.git gt 4.9.git && echo true
+    DebianPackageVersion=$DebianPackageVersion.nightly$TODAY
     sed -i "s#^Version:.*#Version: $DebianPackageVersion#g" $debpkgname.dsc
 
     # need to use lowercase package name in changelog
