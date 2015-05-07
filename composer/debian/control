@@ -1,11 +1,11 @@
-Source: php-composer
+Source: composer
 Section: web
 Priority: optional
 Maintainer: Ross Duggan <ross.duggan@acm.org>
 Build-Depends: debhelper (>= 7), po-debconf, php5-dev
 Standards-Version: 3.9.4
 
-Package: php5-composer
+Package: composer
 Depends: php5-cli | hhvm
 Architecture: any
 Description: Dependency Manager for PHP
