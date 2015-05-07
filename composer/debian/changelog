@@ -1,3 +1,9 @@
+composer (1.0.0-0.4) unstable; urgency=low
+
+  * Build from same tarball as the RPM
+
+ -- Timotheus Pokorra <tp@tbits.net>  Thu, 07 May 2015 17:47:06 +0000
+
 php-composer (1.0.0-dev-20141121-56~ubuntu15.04.1) vivid; urgency=low
 
   * Auto build.
