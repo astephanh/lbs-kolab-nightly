@@ -106,20 +106,7 @@ do
       echo "chwala-0.2-suhosin.session.encrypt-php_flag.patch -p1" > debian/series
     fi
 
-    if [[ "$pkgname" == "iRony" ]]
-    then
-      git clone https://git.kolab.org/diffusion/I/iRony.git iRony.git
-      git clone https://git.kolab.org/diffusion/C/chwala.git kolab-chwala.git
-      git clone https://github.com/roundcube/roundcubemail.git roundcubemail.git
-      git clone https://git.kolab.org/diffusion/RPK/roundcubemail-plugins-kolab.git roundcubemail-plugins-kolab.git
-      cd iRony.git
-      ./autogen.sh master || exit -1
-      mv iRony-master+dep.tar.gz ..
-      cd ..
-      sed -i "s#^Source0:.*#Source0:         $tarballname-master+dep.tar.gz#g" $pkgname.spec
-      rm -Rf *.git
-      rm -Rf iRony-master
-    elif [[ "$pkgname" == "kolab-freebusy" ]]
+    if [[ "$pkgname" == "kolab-freebusy" ]]
     then
       git clone --depth 1 https://git.kolab.org/diffusion/F/freebusy.git kolab-freebusy.git
       git clone --depth 1 https://github.com/roundcube/roundcubemail.git roundcubemail.git
