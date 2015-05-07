@@ -23,7 +23,7 @@
 %global tmpdir %{_var}/lib/roundcubemail
 
 Name:           roundcubemail-plugins-kolab
-Version:        3.2.8
+Version:        3.3
 Release:        99.dev%(date +%%Y%%m%%d)%{?dist}
 Summary:        Kolab Groupware plugins for Roundcube Webmail
 
@@ -31,12 +31,9 @@ Group:          Applications/Internet
 License:        AGPLv3+ and GPLv3+
 URL:            http://www.kolab.org
 
+# From 562ed98bd2e265c0d8a12bd2092b72d85d3e3543
 Source0:        roundcubemail-plugins-kolab-master.tar.gz
 Source1:        comm.py
-
-# adding libkolab.css already here from https://git.kolab.org/rRPKde110b96a5579b6a43febc6f87cd56ffdc6e0ebf
-# so that the nightly packages already include the file and the spec file changes are already maintained here
-Patch0:         libkolabcss.patch
 
 BuildRoot:      %(mktemp -ud %{_tmppath}/%{name}-master-%{release}-XXXXXX)
 BuildArch:      noarch

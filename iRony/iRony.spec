@@ -31,7 +31,7 @@
 %global _ap_sysconfdir %{_sysconfdir}/%{httpd_name}
 
 Name:           iRony
-Version:        0.3.0
+Version:        0.4
 Release:        99.dev%(date +%%Y%%m%%d)%{?dist}
 Summary:        DAV for Kolab Groupware
 
@@ -39,16 +39,17 @@ Group:          Applications/Internet
 License:        AGPLv3+
 URL:            http://kolab.org
 
+# From f7e4e0e36b62f10d2570d6fccef686c3e1c43af0
 Source0:         iRony-master+dep.tar.gz
 Source1:        iRony.conf
 Source2:        iRony.logrotate
 
 BuildArch:      noarch
 
-Requires:       roundcubemail(core)
-Requires:       roundcubemail-plugin-kolab_auth >= 3.1.12
-Requires:       roundcubemail-plugin-kolab_folders >= 3.1.12
-Requires:       roundcubemail-plugin-libkolab >= 3.1.12
+Requires:       roundcubemail(core) >= 1.1
+Requires:       roundcubemail-plugin-kolab_auth >= 3.3
+Requires:       roundcubemail-plugin-kolab_folders >= 3.3
+Requires:       roundcubemail-plugin-libkolab >= 3.3
 %if 0%{?suse_version}
 Requires:       http_daemon
 %else
@@ -58,11 +59,13 @@ Requires:       webserver
 # Build requirements needed of *SUSE, which otherwise bails over
 # dead-end symbolic links and/or files and directories not owned
 # by any package.
-%if 0%{?suse_version}
 BuildRequires:  chwala
+BuildRequires:  composer
 BuildRequires:  roundcubemail
 BuildRequires:  roundcubemail-plugins-kolab
-%endif
+
+Requires:       php-sabre-dav >= 2.1.3
+Requires:       php-sabre-vobject >= 3.2.4
 
 %description
 iRony is the CardDAV, CalDAV and WebDAV storage access provider for the
@@ -72,6 +75,11 @@ Kolab Groupware solution.
 %setup -q -n iRony-master
 
 %build
+rm -rf composer.json
+mv composer.json-dist composer.json
+mkdir -p $HOME/.composer/
+echo '{}' > $HOME/.composer/composer.json
+composer -vvv dumpautoload --optimize
 
 %install
 mkdir -p \

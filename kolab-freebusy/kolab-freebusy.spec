@@ -22,7 +22,7 @@
 %global _ap_sysconfdir %{_sysconfdir}/%{httpd_name}
 
 Name:           kolab-freebusy
-Version:        1.0.7
+Version:        1.1
 Release:        99.dev%(date +%%Y%%m%%d)%{?dist}
 Summary:        Kolab Free/Busy Web Presentation Layer
 
@@ -33,9 +33,9 @@ Source0:         kolab-freebusy-master+dep.tar.gz
 Source1:        kolab-freebusy.logrotate
 Source2:        kolab-freebusy.conf
 
-Patch0001:      0001-Consider-recurrence-exceptions-when-computing-busy-t.patch
-
 BuildArch:      noarch
+
+BuildRequires:  composer
 
 %if 0%{?suse_version}
 BuildRequires:  roundcubemail
@@ -61,9 +61,12 @@ for its users.
 %prep
 %setup -q -n kolab-freebusy-master
 
-#%patch0001 -p1
-
 %build
+rm -rf composer.json
+mv composer.json-dist composer.json
+mkdir -p $HOME/.composer/
+echo '{}' > $HOME/.composer/composer.json
+composer -vvv dumpautoload --optimize
 
 %install
 mkdir -p \
