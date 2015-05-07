@@ -125,7 +125,6 @@ do
       git clone --depth 1 https://github.com/roundcube/roundcubemail.git roundcubemail.git
       git clone --depth 1 https://git.kolab.org/diffusion/RPK/roundcubemail-plugins-kolab.git roundcubemail-plugins-kolab.git
       cd kolab-freebusy.git
-      patch -p1 < ../../../../0001-freebusy-new-Phabricator-url-for-git.kolab.org.patch
       ./autogen.sh master || exit -1
       mv kolab-freebusy-master+dep.tar.gz ..
       cd ..
