@@ -114,7 +114,7 @@ do
       echo "chwala-0.2-suhosin.session.encrypt-php_flag.patch -p1" > debian/series
     fi
 
-    if [[ "$pkgname" == "kolab-freebusy" ]]
+    if [[ "$pkgname" == "kolab-freebusy_disabled" ]]
     then
       git clone --depth 1 https://git.kolab.org/diffusion/F/freebusy.git kolab-freebusy.git
       git clone --depth 1 https://github.com/roundcube/roundcubemail.git roundcubemail.git
