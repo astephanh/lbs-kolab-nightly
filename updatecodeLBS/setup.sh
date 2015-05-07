@@ -86,6 +86,12 @@ do
     then
       DebianPackageVersion=$serviceVersion
     fi
+    #Problem: if only x.y.nightly: error: can't build with source format '3.0 (quilt)': non-native package version does not contain a revision
+    countDots="${DebianPackageVersion//[^\.]}"
+    if [ "${#countDots}" == 1 ]
+    then
+      DebianPackageVersion=$DebianPackageVersion.0
+    fi
     #Problem: 4.9.1.git > 4.9.1-99.nightly
     #Problem: does not show true: dpkg --compare-versions 4.9.1~nightly20150507 gt 4.9.1 && echo true; on Ubuntu it is equal, but on Jessie it is less
     #Problem: does not show true: dpkg --compare-versions 4.9.1.git gt 4.9.git && echo true
