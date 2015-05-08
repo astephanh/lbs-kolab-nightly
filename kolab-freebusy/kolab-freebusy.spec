@@ -29,7 +29,7 @@ Summary:        Kolab Free/Busy Web Presentation Layer
 Group:          Applications/Internet
 License:        AGPLv3+
 URL:            http://kolab.org/about/kolab-freebusy
-Source0:         kolab-freebusy-master+dep.tar.gz
+Source0:        kolab-freebusy-master.tar.gz
 Source1:        kolab-freebusy.logrotate
 Source2:        kolab-freebusy.conf
 

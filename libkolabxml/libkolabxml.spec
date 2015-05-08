@@ -61,7 +61,7 @@ Name:           libkolabxml1
 %else
 Name:           libkolabxml
 %endif
-Version:        1.1
+Version:        1.2
 Release:        99.dev%(date +%%Y%%m%%d)%{?dist}
 Summary:        Kolab XML format collection parser library
 
