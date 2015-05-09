@@ -2,7 +2,7 @@ Format: 1.0
 Source: kolab-utils
 Binary: kolab-utils
 Architecture: any
-Version: 3.1.0.nightly20150508
+Version: 3.1.0.nightly20150509
 Maintainer: Paul Klos <kolab@klos2day.nl>
 Homepage: http://git.kolab.org/kolab-utils
 Standards-Version: 3.9.3
