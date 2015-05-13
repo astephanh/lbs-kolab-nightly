@@ -2,7 +2,7 @@ Format: 1.0
 Source: libkolab
 Binary: libkolab0, php-kolab, python-kolab, libkolab-dev
 Architecture: any
-Version: 0.6.0.nightly20150512
+Version: 0.6.0.nightly20150513
 Maintainer: Debian Kolab Maintainers <pkg-kolab-devel@lists.alioth.debian.org>
 Uploaders: Jeroen van Meeuwen (Kolab Systems) <vanmeeuwen@kolabsys.com>, Christoph Wickert <wickert@kolabsys.com>, Paul Klos <kolab@klos2day.nl>
 Homepage: http://git.kolab.org/libkolab
