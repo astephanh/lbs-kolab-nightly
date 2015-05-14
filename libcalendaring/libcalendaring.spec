@@ -47,9 +47,11 @@ cmake \
     -DCMAKE_VERBOSE_MAKEFILE=ON \
     -DCMAKE_INSTALL_PREFIX=%{_prefix} \
     -DLIB_INSTALL_DIR=%{_libdir} \
+    -DQT_NO_DEBUG_OUTPUT=1 \
+    -DQT_NO_WARNING_OUTPUT=1 \
     ..
 
-popd
+popd build
 
 %install
 pushd build
@@ -68,6 +70,9 @@ popd
 %{_libdir}/libcalendaring*.a
 
 %changelog
+* Mon Feb 23 2015 Jeroen van Meeuwen <vanmeeuwen@kolabsys.com> - 4.9.1-1
+- New upstream version 4.9.1
+
 * Fri Aug  3 2012 Jeroen van Meeuwen <vanmeeuwen@kolabsys.com> - 4.9.0-1
 - New upstream version 4.9.0
 

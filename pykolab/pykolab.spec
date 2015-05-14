@@ -28,7 +28,7 @@
 
 Summary:            Kolab Groupware Solution
 Name:               pykolab
-Version:            0.7.11
+Version:            0.7.12
 Release:        99.dev%(date +%%Y%%m%%d)%{?dist}
 License:            GPLv3+
 Group:              Applications/System
@@ -532,6 +532,11 @@ rm -rf %{buildroot}
 %attr(0700,%{kolab_user},%{kolab_group}) %dir %{_var}/spool/pykolab/wallace
 
 %changelog
+* Wed May 13 2015 Jeroen van Meeuwen <vanmeeuwen@kolabsys.com> - 0.7.12-1
+- Release of version 0.7.12, see;
+
+  https://issues.kolab.org/buglist.cgi?target_milestone=0.7.12&product=pykolab
+
 * Tue Mar 31 2015 Jeroen van Meeuwen <vanmeeuwen@kolabsys.com> - 0.7.11-2
 - Back out the changes related to #4459
 
