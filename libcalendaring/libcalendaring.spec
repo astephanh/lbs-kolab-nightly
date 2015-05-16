@@ -51,7 +51,7 @@ cmake \
     -DQT_NO_WARNING_OUTPUT=1 \
     ..
 
-popd build
+popd
 
 %install
 pushd build
