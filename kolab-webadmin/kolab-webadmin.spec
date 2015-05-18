@@ -103,6 +103,7 @@ mkdir -p \
 # Remove the lib/'s we can depend on
 rm -rf lib/ext/
 
+cp -a bin %{buildroot}/%{_datadir}/%{name}/.
 cp -a lib/ public_html/ hosted/ %{buildroot}/%{_datadir}/%{name}/.
 cp -a doc/kolab-webadmin.conf %{buildroot}/%{_ap_sysconfdir}/conf.d/
 cp -a doc/hosted-kolab.conf %{buildroot}/%{_ap_sysconfdir}/conf.d/
