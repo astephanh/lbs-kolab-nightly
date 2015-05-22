@@ -1,6 +1,12 @@
-pykolab (0.7.13.nightly20150521) unstable; urgency=low
+pykolab (0.7.14.nightly20150522) unstable; urgency=low
   * nightly build
- -- Timotheus Pokorra (TBits.net) <tp@tbits.net>  Thu, 21 May 2015 02:59:48 +0200
+ -- Timotheus Pokorra (TBits.net) <tp@tbits.net>  Fri, 22 May 2015 03:00:11 +0200
+
+pykolab (0.7.14-0~kolab1) unstable; urgency=low
+
+  * Release 0.7.14 for continuous integration
+
+ -- Jeroen van Meeuwen (Kolab Systems) <vanmeeuwen@kolabsys.com>  Thu, 21 May 2015 01:49:00 +0100
 
 pykolab (0.7.13-0~kolab1) unstable; urgency=low
 

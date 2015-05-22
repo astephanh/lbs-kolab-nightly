@@ -2,7 +2,7 @@ Format: 1.0
 Source: pykolab
 Binary: pykolab, kolab-cli, kolab-conf, kolab-saslauthd, kolab-server, kolab-telemetry, kolab-xml, wallace
 Architecture: all
-Version: 0.7.13.nightly20150521
+Version: 0.7.14.nightly20150522
 Maintainer: Jeroen van Meeuwen (Kolab Systems) <vanmeeuwen@kolabsys.com>
 Uploaders: Paul Klos <kolab@klos2day.nl>
 Homepage: http://www.kolab.org
@@ -40,5 +40,5 @@ Package-List:
  pykolab deb python optional
  wallace deb python optional
 Files: 
- 00000000000000000000000000000000 0 pykolab-0.7.13.tar.gz
+ 00000000000000000000000000000000 0 pykolab-0.7.14.tar.gz
  00000000000000000000000000000000 0 debian.tar.gz
