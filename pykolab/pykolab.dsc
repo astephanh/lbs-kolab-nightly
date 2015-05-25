@@ -2,7 +2,7 @@ Format: 1.0
 Source: pykolab
 Binary: pykolab, kolab-cli, kolab-conf, kolab-saslauthd, kolab-server, kolab-telemetry, kolab-xml, wallace
 Architecture: all
-Version: 0.7.14.nightly20150524
+Version: 0.7.14.nightly20150525
 Maintainer: Jeroen van Meeuwen (Kolab Systems) <vanmeeuwen@kolabsys.com>
 Uploaders: Paul Klos <kolab@klos2day.nl>
 Homepage: http://www.kolab.org
