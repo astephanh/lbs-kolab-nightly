@@ -1,6 +1,6 @@
-irony (0.4.0.nightly20150526) unstable; urgency=low
+irony (0.4.0.nightly20150528) unstable; urgency=low
   * nightly build
- -- Timotheus Pokorra (TBits.net) <tp@tbits.net>  Tue, 26 May 2015 02:57:20 +0200
+ -- Timotheus Pokorra (TBits.net) <tp@tbits.net>  Thu, 28 May 2015 03:04:30 +0200
 
 irony (0.4.0-0~kolab1) unstable; urgency=low
 
