@@ -78,10 +78,6 @@ BuildRequires:  boost-devel
 BuildRequires:  cmake >= 2.6
 BuildRequires:  e2fsprogs-devel
 BuildRequires:  gcc-c++
-%if 0%{?rhel} > 7 || 0%{?fedora} >= 22
-BuildRequires:  kdelibs-devel
-BuildRequires:  kdepimlibs-devel
-%endif
 BuildRequires:  libcurl-devel
 %if 0%{?suse_version}
 BuildRequires:  qt-devel
@@ -137,10 +133,6 @@ Requires:       boost-devel
 Requires:       cmake >= 2.6
 Requires:       e2fsprogs-devel
 Requires:       gcc-c++
-%if 0%{?rhel} > 7 || 0%{?fedora} >= 22
-Requires:       kdelibs-devel
-Requires:       kdepimlibs-devel
-%endif
 Requires:       libcurl-devel
 %if 0%{?with_php} > 0
 Requires:       php-devel >= 5.3
@@ -385,6 +377,10 @@ rm -rf %{buildroot}
 %endif
 
 %changelog
+* Thu May 28 2015 Christian Mollekopf <mollekopf@kolabsys.com> - 1.2
+- New upstream release
+- Removed dependency on kdepimlibs and kdelibs which is not required
+
 * Mon Jan 13 2014 Jeroen van Meeuwen <vanmeeuwen@kolabsys.com> - 1.0.1-2
 - Require php-kolab for php-kolabformat, and void
   /etc/php.d/kolabformat.ini (#2667)

@@ -35,6 +35,7 @@ Group:              Applications/System
 URL:                http://kolab.org/
 
 Source0:        pykolab-master.tar.gz
+Source1:            pykolab.logrotate
 
 Patch0001:          0001-Add-a-function-to-retrieve-the-naming-context-used-f.patch
 Patch0002:          0002-Proxy-the-new-naming-context-function.patch
@@ -217,6 +218,8 @@ autoreconf -v || automake --add-missing && autoreconf -v
 %install
 rm -rf %{buildroot}
 make install DESTDIR=%{buildroot}
+mkdir -p %{buildroot}%{_sysconfdir}/logrotate.d
+cp -pr %SOURCE1 %{buildroot}%{_sysconfdir}/logrotate.d/pykolab
 
 %if 0%{?with_systemd}
 mkdir -p %{buildroot}/%{_unitdir}
@@ -382,6 +385,7 @@ rm -rf %{buildroot}
 %doc conf/kolab.conf
 %attr(0750,kolab-n,kolab) %dir %{_sysconfdir}/kolab
 %attr(0640,kolab-n,kolab) %config(noreplace) %{_sysconfdir}/kolab/kolab.conf
+%config(noreplace) %{_sysconfdir}/logrotate.d/%{name}
 %dir %{python_sitelib}/pykolab/
 %exclude %{python_sitelib}/pykolab/telemetry.*
 %{python_sitelib}/pykolab/*.py
@@ -532,6 +536,12 @@ rm -rf %{buildroot}
 %attr(0700,%{kolab_user},%{kolab_group}) %dir %{_var}/spool/pykolab/wallace
 
 %changelog
+* Thu May 28 2015 Timotheus Pokorra <tp@tbits.net> - 0.7.14-3
+- do not require package logrotate
+
+* Sun May 25 2015 Jochen Hein <jochen@jochen.org> - 0.7.14-2
+- add logrotate configuration for /var/log/kolab/pykolab.log
+
 * Thu May 21 2015 Jeroen van Meeuwen <vanmeeuwen@kolabsys.com> - 0.7.14-1
 - Release of version 0.7.14 for continuous integration
 

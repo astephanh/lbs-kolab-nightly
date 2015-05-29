@@ -1,6 +1,7 @@
 #!BuildIgnore: lighttpd
-#!BuildIgnore: thttpd
 #!BuildIgnore: nginx
+#!BuildIgnore: php-mysql
+#!BuildIgnore: thttpd
 %{!?php_inidir: %global php_inidir %{_sysconfdir}/php.d}
 
 %if 0%{?suse_version} < 1 && 0%{?fedora} < 1 && 0%{?rhel} < 7
@@ -36,10 +37,12 @@ Source2:        kolab-freebusy.conf
 BuildArch:      noarch
 
 BuildRequires:  composer
-
-%if 0%{?suse_version}
+BuildRequires:  php-Monolog
+BuildRequires:  php-sabre-dav >= 2.1.3
 BuildRequires:  roundcubemail
 BuildRequires:  roundcubemail-plugins-kolab
+
+%if 0%{?suse_version}
 Requires:       http_daemon
 Requires:       php
 %else
@@ -50,7 +53,9 @@ Requires:       php-common >= 5.3
 Requires:       kolab-utils
 Requires:       logrotate
 Requires:       php-ldap
+Requires:       php-Monolog
 Requires:       php-pear(Net_LDAP3)
+Requires:       php-sabre-dav >= 2.1.3
 Requires:       roundcubemail
 Requires:       roundcubemail-plugins-kolab
 

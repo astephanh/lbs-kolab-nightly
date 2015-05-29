@@ -63,6 +63,8 @@ BuildRequires:  chwala
 BuildRequires:  composer
 BuildRequires:  roundcubemail
 BuildRequires:  roundcubemail-plugins-kolab
+BuildRequires:  php-sabre-dav >= 2.1.3
+BuildRequires:  php-sabre-vobject >= 3.2.4
 
 Requires:       php-sabre-dav >= 2.1.3
 Requires:       php-sabre-vobject >= 3.2.4
