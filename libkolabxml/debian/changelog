@@ -1,6 +1,6 @@
-libkolabxml (1.2.0.nightly20150529) unstable; urgency=low
+libkolabxml (1.2.0.nightly20150530) unstable; urgency=low
   * nightly build
- -- Timotheus Pokorra (TBits.net) <tp@tbits.net>  Fri, 29 May 2015 03:05:22 +0200
+ -- Timotheus Pokorra (TBits.net) <tp@tbits.net>  Sat, 30 May 2015 03:01:39 +0200
 
 libkolabxml (1.2~dev20150511-0~kolab1) unstable; urgency=low
 
