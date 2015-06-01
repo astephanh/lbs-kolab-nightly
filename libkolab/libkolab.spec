@@ -40,7 +40,7 @@ URL:            http://git.kolab.org/libkolab
 Source0:        libkolab-master.tar.gz
 
 BuildRequires:  cmake
-%if 0%{?rhel} > 7 || 0%{?fedora} > 21
+%if 0%{?rhel} > 7 || 0%{?fedora} >= 20
 BuildRequires:  kdepimlibs-devel >= 4.11
 %else
 # Note: available within kolabsys.com infrastructure only, as being (essentially) a
@@ -69,7 +69,7 @@ The libkolab library is an advanced library to  handle Kolab objects.
 %endif
 Summary:        Kolab library development headers
 Requires:       libkolab%{?_isa} = %{version}
-%if 0%{?rhel} > 7 || 0%{?fedora} > 21
+%if 0%{?rhel} > 7 || 0%{?fedora} >= 20
 BuildRequires:  kdepimlibs-devel >= 4.11
 %else
 # Note: available within kolabsys.com infrastructure only, as being (essentially) a
@@ -152,7 +152,7 @@ cmake \
     -DBoost_NO_BOOST_CMAKE=TRUE \
     -Wno-fatal-errors -Wno-errors \
     -DINCLUDE_INSTALL_DIR=%{_includedir} \
-%if 0%{?rhel} < 8 && 0%{?fedora} < 22
+%if 0%{?rhel} < 8 && 0%{?fedora} < 20
     -DUSE_LIBCALENDARING=ON \
 %endif
     -DPHP_BINDINGS=ON \
