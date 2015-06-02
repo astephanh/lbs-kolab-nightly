@@ -71,6 +71,10 @@ Summary:        Kolab library development headers
 Requires:       libkolab%{?_isa} = %{version}
 %if 0%{?rhel} > 7 || 0%{?fedora} >= 20
 BuildRequires:  kdepimlibs-devel >= 4.11
+%if 0%{?fedora} >= 21
+# Fedora 21 has qca2 and qca, qca2 has been renamed to qca
+BuildRequires: qca
+%endif
 %else
 # Note: available within kolabsys.com infrastructure only, as being (essentially) a
 # fork of various kde 4.9 libraries that depend on kde*, and that have no place in el6.
