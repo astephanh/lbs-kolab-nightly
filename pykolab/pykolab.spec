@@ -67,6 +67,10 @@ BuildRequires:      python-pytz
 BuildRequires:      pytz
 %endif
 BuildRequires:      python-twisted-core
+%if 0%{?fedora} >= 21
+# Fedora 21 has qca2 and qca, qca2 has been renamed to qca, required by kdelibs
+BuildRequires: qca
+%endif
 Requires:           kolab-cli = %{version}-%{release}
 Requires:           python-ldap >= 2.4
 Requires:           python-pyasn1

@@ -31,6 +31,10 @@ BuildRequires:  kdepimlibs-devel >= 4.9
 # fork of various kde 4.9 libraries that depend on kde*, and that have no place in el6.
 BuildRequires:  libcalendaring-devel
 %endif
+%if 0%{?fedora} >= 21
+# Fedora 21 has qca2 and qca, qca2 has been renamed to qca, required by kdelibs
+BuildRequires: qca
+%endif
 BuildRequires:  qt-devel
 
 %description

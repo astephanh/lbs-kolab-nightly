@@ -59,6 +59,11 @@ Requires:       php-sabre-dav >= 2.1.3
 Requires:       roundcubemail
 Requires:       roundcubemail-plugins-kolab
 
+%if 0%{?fedora} >= 21
+# Fedora 21 has qca2 and qca, qca2 has been renamed to qca, required by kdelibs
+BuildRequires: qca
+%endif
+
 %description
 This software enables a multi-sourced publication of Free/Busy information
 for its users.

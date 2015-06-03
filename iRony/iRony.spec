@@ -69,6 +69,11 @@ BuildRequires:  php-sabre-vobject >= 3.2.4
 Requires:       php-sabre-dav >= 2.1.3
 Requires:       php-sabre-vobject >= 3.2.4
 
+%if 0%{?fedora} >= 21
+# Fedora 21 has qca2 and qca, qca2 has been renamed to qca, required by kdelibs
+BuildRequires: qca
+%endif
+
 %description
 iRony is the CardDAV, CalDAV and WebDAV storage access provider for the
 Kolab Groupware solution.
