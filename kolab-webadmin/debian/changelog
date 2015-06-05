@@ -1,6 +1,6 @@
-kolab-webadmin (3.2.7.nightly20150604) unstable; urgency=low
+kolab-webadmin (3.2.7.nightly20150605) unstable; urgency=low
   * nightly build
- -- Timotheus Pokorra (TBits.net) <tp@tbits.net>  Thu, 04 Jun 2015 03:01:47 +0200
+ -- Timotheus Pokorra (TBits.net) <tp@tbits.net>  Fri, 05 Jun 2015 03:05:00 +0200
 
 kolab-webadmin (3.2.7-0~kolab1) unstable; urgency=low
 
