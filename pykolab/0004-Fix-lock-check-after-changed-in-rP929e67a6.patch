@@ -1,0 +1,35 @@
+From e5925a3a56502be3e51571ea7db098d29638dfd3 Mon Sep 17 00:00:00 2001
+From: Thomas Bruederli <bruederli@kolabsys.com>
+Date: Tue, 26 May 2015 18:00:36 +0200
+Subject: [PATCH 4/7] Fix lock check after changed in rP929e67a6
+
+---
+ wallace/module_invitationpolicy.py | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
+
+diff --git a/wallace/module_invitationpolicy.py b/wallace/module_invitationpolicy.py
+index f401b0d..97ff2a3 100644
+--- a/wallace/module_invitationpolicy.py
++++ b/wallace/module_invitationpolicy.py
+@@ -946,16 +946,14 @@ def set_write_lock(key, wait=True):
+     if os.path.isfile(filename):
+         locktime = os.path.getmtime(filename)
+ 
+-    locktime = locktime + 300
+-
+     # wait if file lock is in place
+-    while time.time() < locktime:
++    while time.time() < locktime + 300:
+         if not wait:
+             return False
+ 
+         log.debug(_("%r is locked, waiting...") % (key), level=9)
+         time.sleep(0.5)
+-        locked = os.path.getmtime(filename) if os.path.isfile(filename) else 0
++        locktime = os.path.getmtime(filename) if os.path.isfile(filename) else 0
+ 
+     # touch the file
+     if os.path.isfile(filename):
+-- 
+1.9.3
+

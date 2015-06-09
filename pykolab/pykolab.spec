@@ -40,6 +40,9 @@ Source1:            pykolab.logrotate
 Patch0001:          0001-Add-a-function-to-retrieve-the-naming-context-used-f.patch
 Patch0002:          0002-Proxy-the-new-naming-context-function.patch
 Patch0003:          0003-Use-the-new-domain-naming-context-comparison-functio.patch
+Patch0004:          0002-Make-locale-encoding-the-default-sys-encoding-resolv.patch
+Patch0005:          0004-Fix-lock-check-after-changed-in-rP929e67a6.patch
+Patch0006:          0005-cli-kolab-sync-now-properly-creates-mailboxes-3975.patch
 
 BuildRoot:          %{_tmppath}/%{name}-master-%{release}-root
 BuildArch:          noarch
@@ -214,6 +217,9 @@ This is the Kolab Content Filter, with plugins
 #%patch0003 -p1 -R
 #%patch0002 -p1 -R
 #%patch0001 -p1 -R
+#%patch0004 -p1
+#%patch0005 -p1
+#%patch0006 -p1
 
 %build
 autoreconf -v || automake --add-missing && autoreconf -v
@@ -540,6 +546,11 @@ rm -rf %{buildroot}
 %attr(0700,%{kolab_user},%{kolab_group}) %dir %{_var}/spool/pykolab/wallace
 
 %changelog
+* Mon Jun 08 2015 Christoph Wickert <wickert@kolabsys.com> - 0.7.14-4
+- Make locale encoding the default system encoding (#5051)
+- Fix lock check after changed in rP929e67a6
+- Make 'kolab sync' properly create mailboxes (#3975)
+
 * Thu May 28 2015 Timotheus Pokorra <tp@tbits.net> - 0.7.14-3
 - do not require package logrotate
 
