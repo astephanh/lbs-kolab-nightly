@@ -84,6 +84,17 @@ Provides:       roundcubemail(plugin-calendar) = %{?epoch:%{epoch}:}%{version}-%
 %description -n roundcubemail-plugin-calendar
 Plugin calendar
 
+%package -n roundcubemail-plugin-kolab_2fa
+Summary:        Plugin kolab_2fa
+Group:          Applications/Internet
+Requires:       roundcubemail(core) >= %{roundcube_version}
+Requires:       roundcubemail(plugin-kolab_2fa-assets) = %{?epoch:%{epoch}:}%{version}-%{release}
+Requires:       roundcubemail(plugin-kolab_2fa-skin) = %{?epoch:%{epoch}:}%{version}-%{release}
+Provides:       roundcubemail(plugin-kolab_2fa) = %{?epoch:%{epoch}:}%{version}-%{release}
+
+%description -n roundcubemail-plugin-kolab_2fa
+Plugin kolab_2fa
+
 %package -n roundcubemail-plugin-kolab_activesync
 Summary:        Plugin kolab_activesync
 Group:          Applications/Internet
@@ -150,7 +161,6 @@ Requires:       roundcubemail(core) >= %{roundcube_version}
 Requires:       roundcubemail(plugin-kolab_files-assets) = %{?epoch:%{epoch}:}%{version}-%{release}
 Requires:       roundcubemail(plugin-kolab_files-skin) = %{?epoch:%{epoch}:}%{version}-%{release}
 Requires:       roundcubemail(plugin-libkolab) = %{?epoch:%{epoch}:}%{version}-%{release}
-# Already a part of php-common in rpm packaging
 Requires:       php-curl
 Provides:       roundcubemail(plugin-kolab_files) = %{?epoch:%{epoch}:}%{version}-%{release}
 
@@ -331,6 +341,14 @@ Provides:       roundcubemail(plugin-calendar-assets) = %{?epoch:%{epoch}:}%{ver
 
 %description -n roundcubemail-plugin-calendar-assets
 Plugin calendar Assets
+
+%package -n roundcubemail-plugin-kolab_2fa-assets
+Summary:        Plugin kolab_2fa Assets
+Group:          Applications/Internet
+Provides:       roundcubemail(plugin-kolab_2fa-assets) = %{?epoch:%{epoch}:}%{version}-%{release}
+
+%description -n roundcubemail-plugin-kolab_2fa-assets
+Plugin kolab_2fa Assets
 
 %package -n roundcubemail-plugin-kolab_activesync-assets
 Summary:        Plugin kolab_activesync Assets
@@ -523,6 +541,18 @@ Provides:       roundcubemail(plugin-calendar-skin-classic) = %{?epoch:%{epoch}:
 
 %description -n roundcubemail-plugin-calendar-skin-classic
 Plugin calendar / Skin classic
+
+%package -n roundcubemail-plugin-kolab_2fa-skin-larry
+Summary:        Plugin kolab_2fa / Skin larry
+Group:          Applications/Internet
+Requires:       roundcubemail(plugin-kolab_2fa) = %{?epoch:%{epoch}:}%{version}-%{release}
+Requires:       roundcubemail(skin-larry) >= %{roundcube_version}
+Requires:       roundcubemail(plugin-kolab_2fa-skin-larry-assets) = %{?epoch:%{epoch}:}%{version}-%{release}
+Provides:       roundcubemail(plugin-kolab_2fa-skin) = %{?epoch:%{epoch}:}%{version}-%{release}
+Provides:       roundcubemail(plugin-kolab_2fa-skin-larry) = %{?epoch:%{epoch}:}%{version}-%{release}
+
+%description -n roundcubemail-plugin-kolab_2fa-skin-larry
+Plugin kolab_2fa / Skin larry
 
 %package -n roundcubemail-plugin-kolab_activesync-skin-larry
 Summary:        Plugin kolab_activesync / Skin larry
@@ -731,6 +761,14 @@ Provides:       roundcubemail(plugin-calendar-skin-classic-assets) = %{?epoch:%{
 
 %description -n roundcubemail-plugin-calendar-skin-classic-assets
 Plugin calendar / Skin classic (Assets Package)
+
+%package -n roundcubemail-plugin-kolab_2fa-skin-larry-assets
+Summary:        Plugin kolab_2fa / Skin larry (Assets)
+Group:          Applications/Internet
+Provides:       roundcubemail(plugin-kolab_2fa-skin-larry-assets) = %{?epoch:%{epoch}:}%{version}-%{release}
+
+%description -n roundcubemail-plugin-kolab_2fa-skin-larry-assets
+Plugin kolab_2fa / Skin larry (Assets Package)
 
 %package -n roundcubemail-plugin-kolab_activesync-skin-larry-assets
 Summary:        Plugin kolab_activesync / Skin larry (Assets)
@@ -1265,6 +1303,11 @@ if [ -f "%{_localstatedir}/lib/rpm-state/roundcubemail/httpd.restarted" ]; then
     %{__rm} -f "%{_localstatedir}/lib/rpm-state/roundcubemail/httpd.restarted"
 fi
 
+%pre -n roundcubemail-plugin-kolab_2fa
+if [ -f "%{_localstatedir}/lib/rpm-state/roundcubemail/httpd.restarted" ]; then
+    %{__rm} -f "%{_localstatedir}/lib/rpm-state/roundcubemail/httpd.restarted"
+fi
+
 %pre -n roundcubemail-plugin-kolab_activesync
 if [ -f "%{_localstatedir}/lib/rpm-state/roundcubemail/httpd.restarted" ]; then
     %{__rm} -f "%{_localstatedir}/lib/rpm-state/roundcubemail/httpd.restarted"
@@ -1399,6 +1442,21 @@ for dir in $(find /usr/share/roundcubemail/plugins/calendar/ -type d -name SQL);
         >/dev/null 2>&1 || :
 
 done
+
+%posttrans -n roundcubemail-plugin-kolab_2fa
+if [ ! -f "%{_localstatedir}/lib/rpm-state/roundcubemail/httpd.restarted" ]; then
+    if [ -f "%{php_inidir}/apc.ini" ]; then
+        if [ ! -z "$(grep ^apc.enabled=1 %{php_inidir}/apc.ini)" ]; then
+%if 0%{?with_systemd}
+            /bin/systemctl condrestart %{httpd_name}.service
+%else
+            /sbin/service %{httpd_name} condrestart
+%endif
+        fi
+    fi
+    %{__mkdir_p} %{_localstatedir}/lib/rpm-state/roundcubemail/
+    touch %{_localstatedir}/lib/rpm-state/roundcubemail/httpd.restarted
+fi
 
 %posttrans -n roundcubemail-plugin-kolab_activesync
 if [ ! -f "%{_localstatedir}/lib/rpm-state/roundcubemail/httpd.restarted" ]; then
@@ -1757,6 +1815,10 @@ rm -rf %{buildroot}
 %defattr(-,root,root,-)
 %attr(0640,root,%{httpd_group}) %config(noreplace) %{confdir}/calendar.inc.php
 
+%files -n roundcubemail-plugin-kolab_2fa -f plugin-kolab_2fa.files
+%defattr(-,root,root,-)
+%attr(0640,root,%{httpd_group}) %config(noreplace) %{confdir}/kolab_2fa.inc.php
+
 %files -n roundcubemail-plugin-kolab_activesync -f plugin-kolab_activesync.files
 %defattr(-,root,root,-)
 %attr(0640,root,%{httpd_group}) %config(noreplace) %{confdir}/kolab_activesync.inc.php
@@ -1834,6 +1896,9 @@ rm -rf %{buildroot}
 %files -n roundcubemail-plugin-calendar-assets -f plugin-calendar-assets.files
 %defattr(-,root,root,-)
 
+%files -n roundcubemail-plugin-kolab_2fa-assets -f plugin-kolab_2fa-assets.files
+%defattr(-,root,root,-)
+
 %files -n roundcubemail-plugin-kolab_activesync-assets -f plugin-kolab_activesync-assets.files
 %defattr(-,root,root,-)
 
@@ -1903,6 +1968,9 @@ rm -rf %{buildroot}
 %files -n roundcubemail-plugin-calendar-skin-classic -f plugin-calendar-skin-classic.files
 %defattr(-,root,root,-)
 
+%files -n roundcubemail-plugin-kolab_2fa-skin-larry -f plugin-kolab_2fa-skin-larry.files
+%defattr(-,root,root,-)
+
 %files -n roundcubemail-plugin-kolab_activesync-skin-larry -f plugin-kolab_activesync-skin-larry.files
 %defattr(-,root,root,-)
 
@@ -1955,6 +2023,9 @@ rm -rf %{buildroot}
 %defattr(-,root,root,-)
 
 %files -n roundcubemail-plugin-calendar-skin-classic-assets -f plugin-calendar-skin-classic-assets.files
+%defattr(-,root,root,-)
+
+%files -n roundcubemail-plugin-kolab_2fa-skin-larry-assets -f plugin-kolab_2fa-skin-larry-assets.files
 %defattr(-,root,root,-)
 
 %files -n roundcubemail-plugin-kolab_activesync-skin-larry-assets -f plugin-kolab_activesync-skin-larry-assets.files
