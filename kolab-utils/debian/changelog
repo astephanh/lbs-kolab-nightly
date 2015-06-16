@@ -1,6 +1,6 @@
-kolab-utils (3.1.0.nightly20150615) unstable; urgency=low
+kolab-utils (3.1.0.nightly20150616) unstable; urgency=low
   * nightly build
- -- Timotheus Pokorra (TBits.net) <tp@tbits.net>  Mon, 15 Jun 2015 03:24:28 +0200
+ -- Timotheus Pokorra (TBits.net) <tp@tbits.net>  Tue, 16 Jun 2015 03:19:07 +0200
 
 kolab-utils (3.1~dev20140624-0~kolab1) unstable; urgency=low
 

@@ -1,6 +1,6 @@
-php-net-ldap3 (1.0.3.nightly20150615) unstable; urgency=low
+php-net-ldap3 (1.0.3.nightly20150616) unstable; urgency=low
   * nightly build
- -- Timotheus Pokorra (TBits.net) <tp@tbits.net>  Mon, 15 Jun 2015 03:24:04 +0200
+ -- Timotheus Pokorra (TBits.net) <tp@tbits.net>  Tue, 16 Jun 2015 03:18:51 +0200
 
 php-net-ldap3 (1.0.3-0~kolab1) unstable; urgency=low
 
