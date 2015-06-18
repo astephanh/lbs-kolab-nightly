@@ -32,7 +32,6 @@ License:        AGPLv3+
 URL:            http://kolab.org/about/kolab-freebusy
 Source0:        kolab-freebusy-master.tar.gz
 Source1:        kolab-freebusy.logrotate
-Source2:        kolab-freebusy.conf
 
 BuildArch:      noarch
 
@@ -89,7 +88,7 @@ mkdir -p \
 mkdir -p %{buildroot}%{_sysconfdir}/logrotate.d
 cp -pr %SOURCE1 %{buildroot}%{_sysconfdir}/logrotate.d/kolab-freebusy
 
-install -pm 644 %{SOURCE2} %{buildroot}/%{_ap_sysconfdir}/conf.d/%{name}.conf
+install -pm 644 doc/kolab-freebusy.conf %{buildroot}/%{_ap_sysconfdir}/conf.d/%{name}.conf
 
 cp -a lib %{buildroot}/%{_datadir}/%{name}/lib
 
