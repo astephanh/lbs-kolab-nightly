@@ -61,7 +61,7 @@ Name:           libkolabxml1
 %else
 Name:           libkolabxml
 %endif
-Version:        1.2
+Version: 1.2
 Release:        99.dev%(date +%%Y%%m%%d)%{?dist}
 Summary:        Kolab XML format collection parser library
 
@@ -79,6 +79,7 @@ BuildRequires:  cmake >= 2.6
 BuildRequires:  e2fsprogs-devel
 BuildRequires:  gcc-c++
 BuildRequires:  libcurl-devel
+BuildRequires:  make
 %if 0%{?suse_version}
 BuildRequires:  qt-devel
 %else

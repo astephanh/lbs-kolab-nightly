@@ -1,5 +1,5 @@
 Name:           libcalendaring
-Version:        4.9.1
+Version: 4.9.2
 Release:        99.dev%(date +%%Y%%m%%d)%{?dist}
 Summary:        Library for Calendaring
 
@@ -14,6 +14,7 @@ BuildRequires:  cmake
 BuildRequires:  cyrus-sasl-devel
 BuildRequires:  gcc-c++
 BuildRequires:  libical-devel
+BuildRequires:  make
 %if 0%{?suse_version}
 BuildRequires:  qt-devel
 %else

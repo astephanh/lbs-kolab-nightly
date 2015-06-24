@@ -49,6 +49,7 @@ BuildRequires:  libcalendaring-devel >= 4.9.1
 %endif
 BuildRequires:  libcurl-devel
 BuildRequires:  libkolabxml-devel >= 1.0
+BuildRequires:  make
 BuildRequires:  php >= 5.3
 BuildRequires:  php-devel >= 5.3
 BuildRequires:  python-devel
