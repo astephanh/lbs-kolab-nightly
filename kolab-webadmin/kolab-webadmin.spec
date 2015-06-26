@@ -34,7 +34,7 @@
 %global kolabr_group_id 414
 
 Name:           kolab-webadmin
-Version:        3.2.7
+Version: 3.2.8
 Release:        99.dev%(date +%%Y%%m%%d)%{?dist}
 Summary:        Kolab Groupware Server Web Administration Interface
 License:        AGPLv3+
@@ -75,7 +75,7 @@ Requires:       php-pear(Net_URL2)
 Requires:       php-gettext
 Requires:       php-ldap
 Requires:       php-mbstring
-Requires:       php-mysql
+Requires:       php-mysqlnd
 
 %description
 Web based admin - and user interface for the Kolab Groupware Server
