@@ -1,6 +1,6 @@
-libcalendaring (4.9.2.nightly20150627) unstable; urgency=low
+libcalendaring (4.9.2.nightly20150630) unstable; urgency=low
   * nightly build
- -- Timotheus Pokorra (TBits.net) <tp@tbits.net>  Sat, 27 Jun 2015 03:23:57 +0200
+ -- Timotheus Pokorra (TBits.net) <tp@tbits.net>  Tue, 30 Jun 2015 03:24:21 +0200
 
 libcalendaring (4.9.2~dev20150623-0~kolab1) unstable; urgency=low
 
